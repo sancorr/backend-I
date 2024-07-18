@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "fideos",
+    "description": "La italiana",
+    "price": 20,
+    "img": "sin imagen",
+    "code": "a1",
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "title": "arroz",
+    "description": "marolio",
+    "price": 30,
+    "img": "sin imagen",
+    "code": "a3",
+    "stock": 25
+  },
+  {
+    "id": 3,
+    "title": "lentejas",
+    "description": "marolio",
+    "price": 10,
+    "img": "sin imagen",
+    "code": "a4",
+    "stock": 35
+  },
+  {
+    "id": 4,
+    "title": "arvejas",
+    "description": "marolio",
+    "price": 20,
+    "img": "sin imagen",
+    "code": "a5",
+    "stock": 5
+  },
+  {
+    "id": 5,
+    "title": "brocoli",
+    "description": "marolio",
+    "price": 360,
+    "img": "sin imagen",
+    "code": "a2",
+    "stock": 28
+  }
+]
