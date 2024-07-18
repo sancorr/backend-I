@@ -55,6 +55,7 @@ class ProductManager {
     try {
         const arrayProductos= await this.leerArchivo();
         let productoBuscado = arrayProductos.find((item) => item.id === id);
+
         if (!productoBuscado) {
           console.log("Not found");
           return null
@@ -78,6 +79,47 @@ class ProductManager {
 
   async guardarArchivo(arrayProductos){
     await fs.promises.writeFile(this.path, JSON.stringify(arrayProductos, null, 2))
+
+  }
+
+  async updateProduct(id, updatedProduct){
+
+    try {
+      const arrayProductos= await this.leerArchivo();
+
+      const indexProduct= arrayProductos.findIndex(item=> item.id === id);
+
+      if (indexProduct !== -1) {
+        arrayProductos[indexProduct]={...arrayProductos[indexProduct], ...updatedProduct};
+        await this.guardarArchivo(arrayProductos);
+        console.log("producto actualizado");
+        
+      } else {
+        console.log("Producto no encontrado");
+      }
+    } catch (error) {
+      console.log("Error al actualizar producto ", error);
+    }
+
+  }
+
+  async deleteProduct(id){
+
+    try {
+      const arrayProductos= await this.leerArchivo();
+
+      const indexProduct= arrayProductos.findIndex(item=> item.id === id);
+
+      if (indexProduct !== -1) {
+        arrayProductos.splice(indexProduct,1);
+        await this.guardarArchivo(arrayProductos);
+        console.log("producto eliminado");        
+      } else {
+        console.log("Producto no encontrado");
+      }
+    } catch (error) {
+      console.log("Error al eliminar producto ", error);
+    }
 
   }
 
