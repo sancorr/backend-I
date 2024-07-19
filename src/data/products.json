@@ -1,47 +1,92 @@
 [
   {
     "id": 1,
-    "title": "fideos",
-    "description": "La italiana",
-    "price": 20,
+    "title": "Tarta de Verduras",
+    "description": "Tarta de verduras frescas",
+    "price": 40,
     "img": "sin imagen",
-    "code": "a1",
-    "stock": 25
-  },
-  {
-    "id": 2,
-    "title": "arroz",
-    "description": "marolio",
-    "price": 30,
-    "img": "sin imagen",
-    "code": "a3",
-    "stock": 25
-  },
-  {
-    "id": 3,
-    "title": "lentejas",
-    "description": "marolio",
-    "price": 10,
-    "img": "sin imagen",
-    "code": "a4",
+    "code": "a66",
     "stock": 35
   },
   {
-    "id": 4,
-    "title": "arvejas",
-    "description": "marolio",
-    "price": 20,
+    "id": 2,
+    "title": "Empanada de Carne",
+    "description": "Empanada de carne con cebolla y pimiento",
+    "price": 30,
     "img": "sin imagen",
-    "code": "a5",
-    "stock": 5
+    "code": "b77",
+    "stock": 50
+  },
+  {
+    "id": 3,
+    "title": "Milanesa de Pollo",
+    "description": "Milanesa de pollo empanada",
+    "price": 55,
+    "img": "sin imagen",
+    "code": "c88",
+    "stock": 40
+  },
+  {
+    "id": 4,
+    "title": "Pizza Margherita",
+    "description": "Pizza con tomate, mozzarella y albahaca",
+    "price": 60,
+    "img": "sin imagen",
+    "code": "d99",
+    "stock": 25
   },
   {
     "id": 5,
-    "title": "brocoli",
-    "description": "marolio",
-    "price": 360,
+    "title": "Hamburguesa Completa",
+    "description": "Hamburguesa con lechuga, tomate, queso y bacon",
+    "price": 70,
     "img": "sin imagen",
-    "code": "a2",
-    "stock": 28
+    "code": "e11",
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "title": "Ensalada César",
+    "description": "Ensalada con pollo, croutons y aderezo César",
+    "price": 35,
+    "img": "sin imagen",
+    "code": "f22",
+    "stock": 45
+  },
+  {
+    "id": 7,
+    "title": "Sándwich de Jamón y Queso",
+    "description": "Sándwich con jamón y queso fundido",
+    "price": 25,
+    "img": "sin imagen",
+    "code": "g33",
+    "stock": 60
+  },
+  {
+    "id": 8,
+    "title": "Churros con Chocolate",
+    "description": "Churros recién hechos con chocolate caliente",
+    "price": 20,
+    "img": "sin imagen",
+    "code": "h44",
+    "stock": 70
+  },
+  {
+    "id": 9,
+    "title": "Helado de Vainilla",
+    "description": "Helado cremoso de vainilla",
+    "price": 15,
+    "img": "sin imagen",
+    "code": "i55",
+    "stock": 80
+  },
+  {
+    "id": 10,
+    "title": "Tostada con Palta",
+    "description": "Tostada con palta y huevo poché",
+    "price": 45,
+    "img": "sin imagen",
+    "code": "j66",
+    "stock": 55
   }
 ]
