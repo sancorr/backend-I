@@ -9,8 +9,8 @@ const PORT= 8080;
 app.use(express.json());
 
 //RUTAS products
-app.use("/", productsRouter);
-app.use("/", cartRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/carts", cartRouter);
 
 
 app.listen(PORT, ()=>{

@@ -4,28 +4,34 @@ class ProductManager {
   static ultId = 0;
 
   constructor(path) {
-    this.products = [];
     this.path = path;
+    this.products = [];
   }
 
-  async addProduct({title, description, price, img, code, stock}) {
-    //Realizamos las validaciones y si las pasa creamos el objeto con el id autoincrementable
+  
 
+  async addProduct({ title, description, price, img, code, stock }) {
+    // Validar campos obligatorios
     if (!title || !description || !price || !img || !code || !stock) {
       console.log("Todos los campos son obligatorios");
       return;
     }
-
-    //Validamos que el codigo sea unico.
-
-    if (this.products.some((item) => item.code === code)) {
-      console.log("El codigo debe ser unico o todos moriremos");
+  
+    // Leer los productos existentes
+    const products = await this.leerArchivo();
+  
+    // Validar que el código sea único
+    if (products.some((item) => item.code === code)) {
+      console.log("El código debe ser único");
       return;
     }
-
-    //Creamos el nuevo objeto:
+  
+    // Obtener el último ID existente
+    const lastProductId = products.length > 0 ? products[products.length - 1].id : 0;
+  
+    // Crear el nuevo objeto con el ID incrementado
     const nuevoProducto = {
-      id: ++ProductManager.ultId,
+      id: lastProductId + 1,
       title,
       description,
       price,
@@ -33,13 +39,14 @@ class ProductManager {
       code,
       stock,
     };
-
-    //Lo agrego al array:
-    this.products.push(nuevoProducto);
-
-    //Lo guardo en un archivo:
-    await this.guardarArchivo(this.products);
+  
+    // Agregar el nuevo producto al array de productos
+    products.push(nuevoProducto);
+  
+    // Guardar el array actualizado en el archivo
+    await this.guardarArchivo(products);
   }
+  
 
   async getProducts() {
     try {
@@ -82,43 +89,32 @@ class ProductManager {
 
   }
 
-  async updateProduct(id, updatedProduct){
+  async updateProduct(id, {...updatedProduct}){
 
-    try {
-      const arrayProductos= await this.leerArchivo();
+    const response= await this.getProducts();
 
-      const indexProduct= arrayProductos.findIndex(item=> item.id === id);
+    const index = response.findIndex( product=> product.id == id);
 
-      if (indexProduct !== -1) {
-        arrayProductos[indexProduct]={...arrayProductos[indexProduct], ...updatedProduct};
-        await this.guardarArchivo(arrayProductos);
-        console.log("producto actualizado");
-        
-      } else {
-        console.log("Producto no encontrado");
-      }
-    } catch (error) {
-      console.log("Error al actualizar producto ", error);
+    if (index != -1) {
+      response[index] = {id, ...updatedProduct};
+      await fs.promises.writeFile(this.path, JSON.stringify(response)); //PROBRAR NULL,2 ACA
+      return response[index]
+    } else {
+      console.log("Error al actualizar el producto");
     }
 
   }
 
   async deleteProduct(id){
 
-    try {
-      const arrayProductos= await this.leerArchivo();
+    const products= await this.getProducts();
+    const index= products.findIndex(product=> product.id == id);
 
-      const indexProduct= arrayProductos.findIndex(item=> item.id === id);
-
-      if (indexProduct !== -1) {
-        arrayProductos.splice(indexProduct,1);
-        await this.guardarArchivo(arrayProductos);
-        console.log("producto eliminado");        
-      } else {
-        console.log("Producto no encontrado");
-      }
-    } catch (error) {
-      console.log("Error al eliminar producto ", error);
+    if (index != -1) {
+      products.splice(index,1);
+      await fs.promises.writeFile(this.path, JSON.stringify(products));
+    } else {
+      console.log("error al elminar producto");
     }
 
   }
