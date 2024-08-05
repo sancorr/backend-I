@@ -36,10 +36,29 @@ const manager = new ProductManager("./src/data/products.json");
 
 const io = new Server(httpServer);
 
+
+
 io.on("connection", async (socket)=>{
     console.log("cliente conectado");
 
     socket.emit("products", await manager.getProducts());
+
+    socket.on("addProductForm" , async (data) => { //evento del formulario a partir de la instania del socket
+        
+        //array de productos
+        let productsArr= await manager.getProducts();
+        //Guardo productos creados en el ultimo indice del array incrementando el id en 1
+        data.id = productsArr.length > 0 ? productsArr[productsArr.length - 1].id + 1 : 1
+        
+        productsArr.push(data);
+
+        await manager.addProduct(data); // Escribe el archivo
+
+
+        io.sockets.emit("products", await manager.getProducts()); // Emite a todos los sockets
+    })
+
+    
 
     socket.on("deleteProduct", async (id)=>{
         await manager.deleteProduct(id);

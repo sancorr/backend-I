@@ -32,3 +32,27 @@ const renderProducts = (products)=>{
 const deleteProduct= (id)=>{
     socket.emit("deleteProduct", id);
 };
+
+const addForm = document.getElementById("addForm")
+
+addForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const code = document.getElementById('code').value;
+        const price = document.getElementById('price').value;
+        const stock = document.getElementById('stock').value;
+    
+        if (event){
+          
+            socket.emit("addProductForm", {title,
+                description,
+                price,
+                code,
+                stock,
+                img: "sin imagen"
+                });
+            console.log("enviado al socket")
+        }
+});

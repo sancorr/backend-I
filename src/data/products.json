@@ -63,12 +63,12 @@
         "stock": 130
     },
     {
-        "id": 10,
-        "title": "Producto 10",
-        "description": "Descripción del producto 10",
-        "price": 1000,
-        "img": "imagen10.jpg",
-        "code": "010",
-        "stock": 140
+        "id": 11,
+        "title": "producto 11",
+        "description": "funciona",
+        "price": "432",
+        "img": "sin imagen",
+        "code": "124",
+        "stock": "20"
     }
 ]
