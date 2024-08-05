@@ -32,11 +32,19 @@ const httpServer = app.listen(PORT, ()=>{
     console.log(`Escuchando en el http://localhost:${PORT}`);
 });
 
-const io = new Server(httpServer);
 const manager = new ProductManager("./src/data/products.json");
+
+const io = new Server(httpServer);
 
 io.on("connection", async (socket)=>{
     console.log("cliente conectado");
 
     socket.emit("products", await manager.getProducts());
+
+    socket.on("deleteProduct", async (id)=>{
+        await manager.deleteProduct(id);
+        
+        io.sockets.emit("products", await manager.getProducts());
+    });
+
 })

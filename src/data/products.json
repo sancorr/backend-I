@@ -1,1 +1,74 @@
-[{"id":2,"title":"producot de prueba","description":"santi","price":40,"img":"sin imagen","code":"20","stock":35},{"id":3,"title":"producto de prueba-agregado con postman","description":"santi","price":40,"img":"sin imagen","code":"240","stock":35}]
+[
+    {
+        "id": 3,
+        "title": "Producto 3",
+        "description": "Descripción del producto 3",
+        "price": 300,
+        "img": "imagen3.jpg",
+        "code": "003",
+        "stock": 70
+    },
+    {
+        "id": 4,
+        "title": "Producto 4",
+        "description": "Descripción del producto 4",
+        "price": 400,
+        "img": "imagen4.jpg",
+        "code": "004",
+        "stock": 80
+    },
+    {
+        "id": 5,
+        "title": "Producto 5",
+        "description": "Descripción del producto 5",
+        "price": 500,
+        "img": "imagen5.jpg",
+        "code": "005",
+        "stock": 90
+    },
+    {
+        "id": 6,
+        "title": "Producto 6",
+        "description": "Descripción del producto 6",
+        "price": 600,
+        "img": "imagen6.jpg",
+        "code": "006",
+        "stock": 100
+    },
+    {
+        "id": 7,
+        "title": "Producto 7",
+        "description": "Descripción del producto 7",
+        "price": 700,
+        "img": "imagen7.jpg",
+        "code": "007",
+        "stock": 110
+    },
+    {
+        "id": 8,
+        "title": "Producto 8",
+        "description": "Descripción del producto 8",
+        "price": 800,
+        "img": "imagen8.jpg",
+        "code": "008",
+        "stock": 120
+    },
+    {
+        "id": 9,
+        "title": "Producto 9",
+        "description": "Descripción del producto 9",
+        "price": 900,
+        "img": "imagen9.jpg",
+        "code": "009",
+        "stock": 130
+    },
+    {
+        "id": 10,
+        "title": "Producto 10",
+        "description": "Descripción del producto 10",
+        "price": 1000,
+        "img": "imagen10.jpg",
+        "code": "010",
+        "stock": 140
+    }
+]
